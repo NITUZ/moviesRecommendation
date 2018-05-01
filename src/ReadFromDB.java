@@ -3,10 +3,12 @@ import java.util.HashMap;
 
 public class ReadFromDB {
 
-    public HashMap<Integer, Movie> movies= new HashMap<Integer, Movie>();
-    public HashMap<Integer, Double> users= new HashMap<Integer, Double>();
+    public static HashMap<Integer, Movie> movies= new HashMap<Integer, Movie>();
+    public static HashMap<Integer, User> users= new HashMap<Integer, User>();
 
-    public void LoadMovies() throws SQLException, ClassNotFoundException {
+    public ReadFromDB(){};
+
+    public static void LoadMovies() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = DriverManager.getConnection("jdbc:sqlite:movies.db");
 
@@ -16,8 +18,7 @@ public class ReadFromDB {
         while (rs.next()) {
             int id=rs.getInt("movieId");
             String title=rs.getString("title");
-            Movie movie = new Movie(id,title);
-            movies.put(id, movie);
+            movies.put(id, new Movie(id,title));
         }
 
         //movieAvgRating
@@ -37,7 +38,7 @@ public class ReadFromDB {
         while (rs.next()) {
             int id=rs.getInt("userId");
             double rate=rs.getDouble("avgRating");
-            users.put(id, rate);
+            users.put(id, new User(id,rate));
         }
 
         //ratings
@@ -48,9 +49,12 @@ public class ReadFromDB {
             int user=rs.getInt("userId");
             int movie=rs.getInt("movieId");
             double rate=rs.getDouble("rating");
-            User user
+            users.get(user).MoviesRanks.put(movie,rate);
+            movies.get(movie).users.add(users.get(user));
         }
         conn.close();
+
+        System.out.println("finish");
     }
 
 

@@ -4,7 +4,7 @@ public class User {
 
     public int userID;
     public double avgRank;
-    public HashMap<Integer, Double> MoviesRanks; //key-MovieID , val-movieRank
+    public HashMap<Integer, Double> MoviesRanks= new HashMap<Integer, Double>(); //key-MovieID , val-movieRank
 
     public User(int userID, double avgRank) {
         this.userID = userID;
