@@ -4,13 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import javax.swing.text.html.ImageView;
 
 public class GUIController {
 
-    public ChoiceBox rate;
+    public ComboBox rate;
    // public ImageView photo;
     public Movie currentMovie;
     public int ratedCount;
