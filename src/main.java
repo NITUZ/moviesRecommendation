@@ -6,14 +6,14 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-/*
+
 public class main extends Application{
 
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
-        primaryStage.setTitle("Everything4Rent");
+        Parent root = FXMLLoader.load(getClass().getResource("WelcomeGUI.fxml"));
+        primaryStage.setTitle("Recommended Movies");
         primaryStage.setScene(new Scene(root, 550, 400));
         primaryStage.show();
     }
@@ -22,9 +22,9 @@ public class main extends Application{
     launch(args);
 
     }
-}*/
+}
 
-public class main {
+/*public class main {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
@@ -32,4 +32,4 @@ public class main {
 
         ReadFromDB.LoadMovies();
     }
-}
+}*/
