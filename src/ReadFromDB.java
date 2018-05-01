@@ -1,3 +1,8 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -23,12 +28,12 @@ public class ReadFromDB {
 
         //links
         prep = conn.prepareStatement(
-                "SELECT movieId, imdbId FROM links");
+                "SELECT movieId, tmdbId FROM links");
         rs = prep.executeQuery();
         while (rs.next()) {
             int movie=rs.getInt("movieId");
-            int imdb=rs.getInt("imdbId");
-            movies.get(movie).imdbId=imdb;
+            int tmdb=rs.getInt("tmdbId");
+            movies.get(movie).tmdbId=tmdb;
         }
 
         //movieAvgRating
@@ -65,6 +70,25 @@ public class ReadFromDB {
         conn.close();
 
         System.out.println("finish");
+    }
+
+    public static String getImg(String s) {
+        boolean flag = false;
+        try {
+            Document doc = Jsoup.connect("https://www.themoviedb.org/movie/" + s).get();
+            Element body = doc.body();
+
+            StringBuilder s1 = new StringBuilder();
+            StringBuilder s2 = new StringBuilder();
+            int start=body.html().indexOf("<img class=\"poster\" src=\"")+25;
+            int end=body.html().indexOf("srcset",start)-2;
+            String url=body.html().substring(start,end);
+            return url;
+
+        } catch (IOException e) {
+        } catch (StringIndexOutOfBoundsException e2) {
+        }
+        return "https://78.media.tumblr.com/tumblr_mcmnmjYjt21ri9p4oo1_250.jpg";
     }
 
 
