@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: http://www.pptbackgrounds.org/uploads/film-movies-movie-making-minimalism-creative-backgrounds-wallpapers.jpg;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="620.0" style="-fx-background-image: url(&quot; http://www.pptbackgrounds.org/uploads/film-movies-movie-making-minimalism-creative-backgrounds-wallpapers.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
-      <ImageView fx:id="moviePhoto" fitHeight="172.0" fitWidth="273.0" layoutX="164.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="235.0" layoutY="21.0" text="Rate Movie">
+      <ImageView fx:id="moviePhoto" fitHeight="172.0" fitWidth="273.0" layoutX="180.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="284.0" layoutY="30.0" text="Rate Movie" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="next" layoutX="400.0" layoutY="293.0" mnemonicParsing="false" onAction="#nextMovie" text="Next Movie" />
-      <Button fx:id="saveMovieRate" layoutX="155.0" layoutY="293.0" mnemonicParsing="false" onAction="#saveMovieRate" text="Rate" />
-      <Label fx:id="numOfRated" layoutX="31.0" layoutY="337.0" prefHeight="17.0" prefWidth="61.0" text="rated 0/10" />
-      <ComboBox fx:id="rate" layoutX="31.0" layoutY="293.0" prefHeight="25.0" prefWidth="108.0" promptText="choose rate" />
+      <Button fx:id="next" layoutX="426.0" layoutY="439.0" mnemonicParsing="false" onAction="#nextMovie" text="Next Movie" />
+      <Button fx:id="saveMovieRate" layoutX="287.0" layoutY="439.0" mnemonicParsing="false" onAction="#saveMovieRate" text="Rate" />
+      <Label fx:id="numOfRated" layoutX="163.0" layoutY="483.0" prefHeight="17.0" prefWidth="61.0" text="rated 0/10" />
+      <ComboBox fx:id="rate" layoutX="163.0" layoutY="439.0" prefHeight="25.0" prefWidth="108.0" promptText="choose rate" />
    </children>
 </AnchorPane>

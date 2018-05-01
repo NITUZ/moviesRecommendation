@@ -32,6 +32,7 @@ public class GUIController {
         currRated=false;
         numOfRated.setText("rated "+ratedCount+"/10");
         rate.setValue("");
+
     }
 
     public void nextMovie(ActionEvent actionEvent) {

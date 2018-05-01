@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class WelcomeGUIController {
     public TextField name_txt;
-    public Button startRate_btn;
+    //public Button startRate_btn;
     public String name="";
 
     public void goToRate(ActionEvent actionEvent) throws IOException {
