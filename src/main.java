@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-/*
+
 public class main extends Application{
 
 
@@ -22,9 +22,9 @@ public class main extends Application{
     launch(args);
 
     }
-}*/
+}
 
-public class main {
+/*public class main {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
@@ -32,4 +32,4 @@ public class main {
 
         ReadFromDB.LoadMovies();
     }
-}
+}*/
