@@ -4,7 +4,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
+/*
 public class main extends Application{
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -14,7 +18,18 @@ public class main extends Application{
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    launch(args);
+
+    }
+}*/
+
+public class main {
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+
+        //launch(args);
+
+        ReadFromDB.LoadMovies();
     }
 }
