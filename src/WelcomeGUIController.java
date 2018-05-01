@@ -11,9 +11,11 @@ import java.io.IOException;
 
 public class WelcomeGUIController {
     public TextField name_txt;
+    public Button startRate_btn;
+    public String name="";
 
-    //public Button startRate_btn;
     public void goToRate(ActionEvent actionEvent) throws IOException {
+        name=name_txt.getText();
         Stage stage = new Stage();
         stage.setTitle("add items");
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -22,5 +24,6 @@ public class WelcomeGUIController {
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
         stage.showAndWait();
+
     }
 }
