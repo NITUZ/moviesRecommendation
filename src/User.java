@@ -13,4 +13,8 @@ public class User {
     public void addMovie(int movieID, double rank){
         MoviesRanks.put(movieID,rank);
     }
+
+    public double getMovieRank ( int movieID){
+        return MoviesRanks.get(movieID);
+    }
 }
