@@ -8,6 +8,7 @@ public class Movie {
     public String movieName;
     public List<User> users= new ArrayList<User>();
     public double avgRank;
+    public int imdbId;
 
     public Movie(int movieID, String movieName) {
         this.movieID = movieID;

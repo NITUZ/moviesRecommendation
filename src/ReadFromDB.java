@@ -21,6 +21,16 @@ public class ReadFromDB {
             movies.put(id, new Movie(id,title));
         }
 
+        //links
+        prep = conn.prepareStatement(
+                "SELECT movieId, imdbId FROM links");
+        rs = prep.executeQuery();
+        while (rs.next()) {
+            int movie=rs.getInt("movieId");
+            int imdb=rs.getInt("imdbId");
+            movies.get(movie).imdbId=imdb;
+        }
+
         //movieAvgRating
         prep = conn.prepareStatement(
                 "SELECT * FROM movieAvgRating");
@@ -50,7 +60,7 @@ public class ReadFromDB {
             int movie=rs.getInt("movieId");
             double rate=rs.getDouble("rating");
             users.get(user).MoviesRanks.put(movie,rate);
-            movies.get(movie).users.add(users.get(user));
+            movies.get(movie).addUser(users.get(user));
         }
         conn.close();
 
