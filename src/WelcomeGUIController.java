@@ -15,7 +15,13 @@ public class WelcomeGUIController {
     public String name="";
 
     public void goToRate(ActionEvent actionEvent) throws IOException {
-        name=name_txt.getText();
+        if(name_txt.getText().isEmpty())
+        {
+            name="";
+        }
+        else {
+            name = name_txt.getText();
+        }
         Stage stage = new Stage();
         stage.setTitle("add items");
         FXMLLoader fxmlLoader = new FXMLLoader();

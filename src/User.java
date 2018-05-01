@@ -10,6 +10,7 @@ public class User {
         this.userID = userID;
         this.avgRank = avgRank;
     }
+
     public void addMovie(int movieID, double rank){
         MoviesRanks.put(movieID,rank);
     }
