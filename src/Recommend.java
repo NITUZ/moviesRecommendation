@@ -31,8 +31,19 @@ public class Recommend {
         u3.addMovie(m1.movieID, 1);
         u3.addMovie(m2.movieID, 3);
         Recommend r = new Recommend(u3);
+
+        ReadFromDB.movies.put(1,m1);
+        ReadFromDB.movies.put(2,m2);
+        ReadFromDB.movies.put(3,m3);
+        ReadFromDB.users.put(1,u1);
+        ReadFromDB.users.put(2,u2);
+        ReadFromDB.users.put(3,u3);
+
+
         r.calcSimUser2Users();
         r.findBestRankMovies();
+
+
 
 
     }
@@ -90,9 +101,9 @@ public class Recommend {
                     double ruForCurr = u.MoviesRanks.get(pair.getKey());
                     double mone2 = ruForCurr - u.avgRank;
                     if (calcs.containsKey(u)) {
-                        calcs.get(u).mone += (mone1 * mone2);
-                        calcs.get(u).mehane1 += (mone1 * mone1);
-                        calcs.get(u).mehane2 += (mone2 * mone2);
+                        calcs.get(u.userID).mone += (mone1 * mone2);
+                        calcs.get(u.userID).mehane1 += (mone1 * mone1);
+                        calcs.get(u.userID).mehane2 += (mone2 * mone2);
                     } else {
                         calcs.put(u.userID, new Calcs((mone1 * mone2), (mone1 * mone1), (mone2 * mone2)));
                     }
@@ -104,7 +115,13 @@ public class Recommend {
         while (it.hasNext()) { //all movies curr rank
             Map.Entry pair = (Map.Entry) it.next(); // pair = key-movieID val-rankBycurr
             {
-                double Wij = ((Calcs) pair.getValue()).mone / (Math.sqrt(((Calcs) pair.getValue()).mehane1 * ((Calcs) pair.getValue()).mehane2));
+                double Wij;
+                if((((Calcs) pair.getValue()).mone)==0.0 || (Math.sqrt(((Calcs) pair.getValue()).mehane1 * ((Calcs) pair.getValue()).mehane2)==0 ))
+                {
+                    Wij=0;
+                }else {
+                    Wij = ((Calcs) pair.getValue()).mone / (Math.sqrt(((Calcs) pair.getValue()).mehane1 * ((Calcs) pair.getValue()).mehane2));
+                }
                 simUser2User.put(((Integer) pair.getKey()), Wij);
             }
             sortByValuesSim(simUser2User);
@@ -151,19 +168,23 @@ public class Recommend {
                 Double ScoreForItem = 0.0, calculate1 = 0.0, calculate2 = 0.0;
                 for (User u : currMovie.users) {
                     if (simUser2User.containsKey(u.userID)) { //if user u is a neighber of current user
-                        calculate1 += ((u.MoviesRanks.get(currMovie.movieID) - u.avgRank) * simUser2User.get(u));
-                        calculate2 += simUser2User.get(u);
+                        calculate1 += ((u.MoviesRanks.get(currMovie.movieID) - u.avgRank) * simUser2User.get(u.userID));
+                        calculate2 += simUser2User.get(u.userID);
                     }
                 }
-                ScoreForItem = currentUser.avgRank + (calculate1) / calculate2;
+                if(calculate1==0 || calculate2==0)
+                    ScoreForItem=0.0;
+                else {
+                    ScoreForItem = currentUser.avgRank + (calculate1) / calculate2;
+                }
                 MovieToOffer.put(currMovie.movieID, ScoreForItem);
             }
 
         }
         sortByValuesScores(MovieToOffer);
         Iterator it3 = MovieToOffer.entrySet().iterator();
-        while (it.hasNext()) { //all movies
-            Map.Entry pair = (Map.Entry) it.next(); // pair = key-movieID val-Movie
+        while (it3.hasNext()) { //all movies
+            Map.Entry pair = (Map.Entry) it3.next(); // pair = key-movieID val-Movie
             System.out.println(pair.getKey().toString() + "  " + pair.getValue().toString());
 
         }
