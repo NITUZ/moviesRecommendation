@@ -1,3 +1,4 @@
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -84,8 +85,8 @@ public class GUIController {
             RecommendedGUIController.moviesID.add(id);
         }
 
-        RecommendedGUIController.name=userName;
 
+        RecommendedGUIController.name=userName;
         Stage stage = new Stage();
         stage.setTitle("Recommended For You");
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -93,9 +94,10 @@ public class GUIController {
         Scene scene = new Scene(root, 700, 470);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
-        stage.showAndWait();
-        Stage stage2=(Stage)saveMovieRate.getScene().getWindow();
+        Stage stage2=(Stage)next.getScene().getWindow();
         stage2.close();
+        stage.show();
+
     }
 
     public void saveMovieRate(ActionEvent actionEvent) {
