@@ -45,7 +45,6 @@ public class GUIController {
 
     private void setNewMovie(){
         currRated=false;
-        numOfRated.setText("rated "+ratedCount+"/10");
         rate.setValue("");
         int id=(int)((Math.random()*9125));
         while(moviesID.contains(id) || !ReadFromDB.movies.containsKey(id))
@@ -103,6 +102,7 @@ public class GUIController {
                 currRated=true;
                 currentUser.addMovie(currentMovie.movieID,mRate);
                 avgRank+=mRate;
+                numOfRated.setText("rated "+ratedCount+"/10");
             }
         }
         else
