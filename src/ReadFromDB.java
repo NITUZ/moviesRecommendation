@@ -69,7 +69,7 @@ public class ReadFromDB {
         }
         conn.close();
 
-        System.out.println("finish");
+        //System.out.println("finish");
     }
 
     public static String getImg(String s) {
