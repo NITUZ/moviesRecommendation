@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: &quot; https://images.cdn4.stockunlimited.net/preview1300/cinema-background-with-movie-objects_1823382.jpg&quot;;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeGUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;https://images.cdn3.stockunlimited.net/preview1300/cinema-background-with-movie-objects_1823381.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeGUIController">
    <children>
       <Label layoutX="240.0" layoutY="39.0" text="Welcome!">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Button fx:id="startRate_btn" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#goToRate" text="Start!" />
+      <Button fx:id="startRate" layoutX="328.0" layoutY="137.0" mnemonicParsing="false" onAction="#goToRate" text="Start!" />
       <Label layoutX="166.0" layoutY="89.0" text="please enter your name and start rating movies" />
       <TextField fx:id="name_txt" layoutX="166.0" layoutY="137.0" promptText="Your name" />
    </children>
