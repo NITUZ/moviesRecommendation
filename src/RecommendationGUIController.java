@@ -13,12 +13,11 @@ import java.util.List;
  * Created by Nogah on 01/05/2018.
  */
 public class RecommendationGUIController {
-    public HashMap<Integer, Movie> recommended; //<ID,movie>
     public ScrollPane scrollPane;
     public int index=1;
     public Button prev_btn;
     public Button next_btn;
-    public List<Integer> moviesID=new ArrayList<>();
+    public static List<Integer> moviesID=new ArrayList<>();
     public javafx.scene.image.ImageView moviePhoto=new javafx.scene.image.ImageView();
     public Label movieTitle_txt;
     public Label movieRank_txt;
@@ -26,10 +25,10 @@ public class RecommendationGUIController {
     @FXML
     public void initialize()
     {
-        for (Integer id:recommended.keySet())
+       /* for (Integer id:recommended.keySet())
         {
             moviesID.add(id);
-        }
+        }*/
         showMovie();
     }
 
@@ -65,7 +64,7 @@ public class RecommendationGUIController {
 
     private void showMovie()
     {
-        Movie currentMovie=recommended.get(moviesID.get(index));
+        Movie currentMovie=ReadFromDB.movies.get(moviesID.get(index));
         String pictureUrl=ReadFromDB.getImg(""+(currentMovie.tmdbId));
         Image img=new Image(pictureUrl);
         moviePhoto.setImage(img);

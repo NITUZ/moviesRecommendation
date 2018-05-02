@@ -2,13 +2,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import javax.swing.text.html.ImageView;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -28,6 +31,7 @@ public class GUIController {
     double avgRank=0;
     public javafx.scene.image.ImageView moviePhoto=new javafx.scene.image.ImageView();
     public Label movieTitle;
+    public Button next;
 
     @FXML
     public void initialize() throws SQLException, ClassNotFoundException {
@@ -39,9 +43,8 @@ public class GUIController {
         setNewMovie();
     }
 
-    private void setNewMovie() {
+    private void setNewMovie(){
         currRated=false;
-        numOfRated.setText("rated "+ratedCount+"/10");
         rate.setValue("");
         int id=(int)((Math.random()*9125));
         while(moviesID.contains(id) || !ReadFromDB.movies.containsKey(id))
@@ -56,7 +59,7 @@ public class GUIController {
         movieTitle.setText(currentMovie.movieName);
     }
 
-    public void nextMovie(ActionEvent actionEvent) {
+    public void nextMovie(ActionEvent actionEvent) throws IOException{
         if(ratedCount<10)
         {
             setNewMovie();
@@ -69,7 +72,24 @@ public class GUIController {
         }
     }
 
-    private void openRecommendation() {
+    private void openRecommendation() throws IOException {
+        //find recommended movies
+        Recommend rec=new Recommend(currentUser);
+        rec.calcSimUser2Users();
+        rec.findBestRankMovies();
+        RecommendationGUIController.moviesID= (List<Integer>) rec.MovieToOffer.keySet();
+
+        Stage stage = new Stage();
+        stage.setTitle("Recommended For You");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(getClass().getResource("recommendationGUI.fxml").openStream());
+        Scene scene = new Scene(root, 700, 600);
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+        Stage stage2=(Stage)next.getScene().getWindow();
+        stage2.close();
+        stage.showAndWait();
+
     }
 
     public void saveMovieRate(ActionEvent actionEvent) {
@@ -82,6 +102,7 @@ public class GUIController {
                 currRated=true;
                 currentUser.addMovie(currentMovie.movieID,mRate);
                 avgRank+=mRate;
+                numOfRated.setText("rated "+ratedCount+"/10");
             }
         }
         else
