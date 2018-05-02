@@ -7,21 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="620.0" style="-fx-background-image: url(&quot; http://www.pptbackgrounds.org/uploads/film-movies-movie-making-minimalism-creative-backgrounds-wallpapers.jpg&quot;);" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" style="-fx-background-image: url(&quot; http://ak7.picdn.net/shutterstock/videos/3718097/thumb/2.jpg&quot;); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
    <children>
-      <ImageView fx:id="moviePhoto" fitHeight="172.0" fitWidth="273.0" layoutX="158.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="236.0" layoutY="30.0" text="Rate Movie" textFill="WHITE">
+      <ImageView fx:id="moviePhoto" fitHeight="233.0" fitWidth="158.0" layoutX="269.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="257.0" layoutY="28.0" text="Rate Movie" textAlignment="CENTER">
          <font>
-            <Font size="26.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="next" layoutX="400.0" layoutY="335.0" mnemonicParsing="false" onAction="#nextMovie" text="Next Movie" />
-      <Button fx:id="saveMovieRate" layoutX="261.0" layoutY="335.0" mnemonicParsing="false" onAction="#saveMovieRate" text="Rate" />
-      <Label fx:id="numOfRated" layoutX="137.0" layoutY="379.0" prefHeight="17.0" prefWidth="61.0" text="rated 0/10" />
-      <ComboBox fx:id="rate" layoutX="137.0" layoutY="335.0" prefHeight="25.0" prefWidth="108.0" promptText="choose rate" />
-      <Label fx:id="movieTitle" layoutX="80.0" layoutY="282.0" prefHeight="27.0" prefWidth="461.0" textAlignment="CENTER">
+      <Button fx:id="next" layoutX="443.0" layoutY="374.0" mnemonicParsing="false" onAction="#nextMovie" style="-fx-alignment: center;" text="Next Movie" />
+      <Button fx:id="saveMovieRate" layoutX="304.0" layoutY="374.0" mnemonicParsing="false" onAction="#saveMovieRate" style="-fx-alignment: center;" text="Rate" />
+      <Label fx:id="numOfRated" layoutX="180.0" layoutY="406.0" prefHeight="20.0" prefWidth="77.0" style="-fx-alignment: center;" text="rated 0/10">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <ComboBox fx:id="rate" layoutX="180.0" layoutY="374.0" prefHeight="25.0" prefWidth="108.0" promptText="choose rate" style="-fx-alignment: center;" />
+      <Label fx:id="movieTitle" layoutX="132.0" layoutY="337.0" prefHeight="27.0" prefWidth="438.0" style="-fx-alignment: center;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="18.0" />
          </font>
       </Label>
    </children>
