@@ -17,12 +17,12 @@
       </Label>
       <Button fx:id="next" layoutX="443.0" layoutY="374.0" mnemonicParsing="false" onAction="#nextMovie" style="-fx-alignment: center;" text="Next Movie" />
       <Button fx:id="saveMovieRate" layoutX="304.0" layoutY="374.0" mnemonicParsing="false" onAction="#saveMovieRate" style="-fx-alignment: center;" text="Rate" />
-      <Label fx:id="numOfRated" layoutX="180.0" layoutY="406.0" prefHeight="20.0" prefWidth="77.0" style="-fx-alignment: center;" text="rated 0/10">
+      <Label fx:id="numOfRated" layoutX="180.0" layoutY="406.0" prefHeight="20.0" prefWidth="88.0" text="rated 0/10">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
       <ComboBox fx:id="rate" layoutX="180.0" layoutY="374.0" prefHeight="25.0" prefWidth="108.0" promptText="choose rate" style="-fx-alignment: center;" />
-      <Label fx:id="movieTitle" layoutX="132.0" layoutY="337.0" prefHeight="27.0" prefWidth="438.0" style="-fx-alignment: center;" textAlignment="CENTER">
+      <Label fx:id="movieTitle" layoutX="90.0" layoutY="337.0" prefHeight="27.0" prefWidth="521.0" style="-fx-alignment: center;" textAlignment="CENTER">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>

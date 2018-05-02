@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class RecommendationGUIController {
     public ScrollPane scrollPane;
-    public int index=1;
+    public int index=0;
     public Button prev_btn;
     public Button next_btn;
     public static List<Integer> moviesID=new ArrayList<>();
@@ -35,31 +36,31 @@ public class RecommendationGUIController {
     public void prevMovie(ActionEvent actionEvent)
     {
         index--;
-        if(index==1)
+        if(index==0)
         {
             prev_btn.setDisable(true);
         }
-        if(index==9)
+        if(index==8)
         {
             next_btn.setDisable(false);
         }
-
         showMovie();
     }
 
     public void nextMovie(ActionEvent actionEvent)
     {
         index++;
-        if(index==2)
+        if(index==1)
         {
             prev_btn.setDisable(false);
         }
-        if(index==10)
+        if(index==9)
         {
             next_btn.setDisable(true);
         }
-        
         showMovie();
+        System.out.println(index);
+
     }
 
     private void showMovie()

@@ -77,7 +77,11 @@ public class GUIController {
         Recommend rec=new Recommend(currentUser);
         rec.calcSimUser2Users();
         rec.findBestRankMovies();
-        RecommendationGUIController.moviesID= (List<Integer>) rec.MovieToOffer.keySet();
+        for (Integer id:rec.MovieToOffer.keySet())
+        {
+            RecommendationGUIController.moviesID.add(id);
+        }
+
 
         Stage stage = new Stage();
         stage.setTitle("Recommended For You");
