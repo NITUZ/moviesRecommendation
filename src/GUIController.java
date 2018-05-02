@@ -32,6 +32,7 @@ public class GUIController {
     public javafx.scene.image.ImageView moviePhoto=new javafx.scene.image.ImageView();
     public Label movieTitle;
     public Button next;
+    public Button saveMovieRate;
 
     @FXML
     public void initialize() throws SQLException, ClassNotFoundException {
@@ -83,6 +84,7 @@ public class GUIController {
         }
 
 
+
         Stage stage = new Stage();
         stage.setTitle("Recommended For You");
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -90,10 +92,9 @@ public class GUIController {
         Scene scene = new Scene(root, 700, 600);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
-        Stage stage2=(Stage)next.getScene().getWindow();
-        stage2.close();
         stage.showAndWait();
-
+        Stage stage2=(Stage)saveMovieRate.getScene().getWindow();
+        stage2.close();
     }
 
     public void saveMovieRate(ActionEvent actionEvent) {

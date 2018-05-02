@@ -26,6 +26,24 @@ public class RecommendedGUIController
     }
 
     private void showMovie() {
+        if(index>0)
+        {
+            prev_btn.setDisable(false);
+        }
+        else
+        {
+            prev_btn.setDisable(true);
+        }
+        if(index<8)
+        {
+            next_btn.setDisable(false);
+        }
+        else
+        {
+            next_btn.setDisable(true);
+        }
+
+
         //image
         int id=moviesID.get(index);
         currMovie=ReadFromDB.movies.get(id);
