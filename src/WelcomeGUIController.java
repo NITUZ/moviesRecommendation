@@ -28,7 +28,7 @@ public class WelcomeGUIController {
         stage.setTitle("Rate Movies");
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = fxmlLoader.load(getClass().getResource("GUI.fxml").openStream());
-        Scene scene = new Scene(root, 700, 600);
+        Scene scene = new Scene(root, 700, 470);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
         Stage stage2=(Stage)startRate.getScene().getWindow();
