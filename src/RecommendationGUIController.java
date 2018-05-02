@@ -22,7 +22,7 @@ public class RecommendationGUIController {
     public javafx.scene.image.ImageView moviePhoto=new javafx.scene.image.ImageView();
     public Label movieTitle_txt;
     public Label movieRank_txt;
-
+    public Movie currentMovie;
     @FXML
     public void initialize()
     {
@@ -36,40 +36,38 @@ public class RecommendationGUIController {
     public void prevMovie(ActionEvent actionEvent)
     {
         index--;
-        if(index==0)
-        {
-            prev_btn.setDisable(true);
-        }
-        if(index==8)
-        {
-            next_btn.setDisable(false);
-        }
         showMovie();
     }
 
     public void nextMovie(ActionEvent actionEvent)
     {
         index++;
-        if(index==1)
-        {
-            prev_btn.setDisable(false);
-        }
-        if(index==9)
-        {
-            next_btn.setDisable(true);
-        }
         showMovie();
-        System.out.println(index);
-
     }
 
     private void showMovie()
     {
-        Movie currentMovie=ReadFromDB.movies.get(moviesID.get(index));
+      /*  if(index>0)
+        {
+            prev_btn.setDisable(false);
+        }
+        else
+        {
+            prev_btn.setDisable(true);
+        }
+        if(index<8)
+        {
+            next_btn.setDisable(false);
+        }
+        else
+        {
+            next_btn.setDisable(true);
+        }*/
+        currentMovie=ReadFromDB.movies.get(moviesID.get(index));
         String pictureUrl=ReadFromDB.getImg(""+(currentMovie.tmdbId));
         Image img=new Image(pictureUrl);
         moviePhoto.setImage(img);
-        movieTitle_txt.setText(currentMovie.movieName);
-        movieRank_txt.setText(""+currentMovie.avgRank);
+       // movieTitle_txt.setText(currentMovie.movieName);
+       // movieRank_txt.setText(""+currentMovie.avgRank);
     }
 }

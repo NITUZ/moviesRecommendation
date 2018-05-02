@@ -79,14 +79,14 @@ public class GUIController {
         rec.findBestRankMovies();
         for (Integer id:rec.MovieToOffer.keySet())
         {
-            RecommendationGUIController.moviesID.add(id);
+            RecommendedGUIController.moviesID.add(id);
         }
 
 
         Stage stage = new Stage();
         stage.setTitle("Recommended For You");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = fxmlLoader.load(getClass().getResource("recommendationGUI.fxml").openStream());
+        Parent root = fxmlLoader.load(getClass().getResource("recommendedGUI.fxml").openStream());
         Scene scene = new Scene(root, 700, 600);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
