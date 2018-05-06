@@ -8,61 +8,7 @@ public class Recommend {
     HashMap<Integer, Double> MovieToOffer;
     User currentUser;
 
-    public static void main(String[] args) {
-        Movie m1 = new Movie(1, "1");
-        m1.avgRank = 2;
-        Movie m2 = new Movie(2, "2");
-        m2.avgRank = 11/3;
-        Movie m3 = new Movie(3, "3");
-        m3.avgRank = 3.5;
-        Movie m4 = new Movie(4,"4");
-        m4.avgRank=2.5;
-        User u1 = new User(1, 3);
-        User u2 = new User(2, 4);
-        User u3 = new User(3, 2);
-        User u4 = new User(4,4);
-        User u5= new User(5,5);
-        User u6= new User(6,5);
-        m1.addUser(u1);
-        m1.addUser(u2);
-        m1.addUser(u3);
-        m1.addUser(u5);
-        m2.addUser(u1);
-        m2.addUser(u3);
-        m2.addUser(u4);
-        m3.addUser(u2);
-        m3.addUser(u4);
-        m4.addUser(u5);
 
-        u1.addMovie(m1.movieID, 2);
-        u1.addMovie(m2.movieID, 4);
-        u2.addMovie(m1.movieID, 4);
-        u2.addMovie(m3.movieID, 4);
-        u3.addMovie(m1.movieID, 1);
-        u3.addMovie(m2.movieID, 3);
-        u4.addMovie(m2.movieID,4);
-        u4.addMovie(m3.movieID,3);
-        u5.addMovie(m4.movieID,3.5);
-        u5.addMovie(m1.movieID,1);
-        Recommend r = new Recommend(u3);
-
-        ReadFromDB.movies.put(1,m1);
-        ReadFromDB.movies.put(2,m2);
-        ReadFromDB.movies.put(3,m3);
-        ReadFromDB.movies.put(4,m4);
-        ReadFromDB.users.put(1,u1);
-        ReadFromDB.users.put(2,u2);
-        ReadFromDB.users.put(3,u3);
-        ReadFromDB.users.put(4,u4);
-        ReadFromDB.users.put(5,u5);
-
-        r.calcSimUser2Users();
-        r.findBestRankMovies();
-
-
-
-
-    }
 
 
     public Recommend(User _currentUser) {
