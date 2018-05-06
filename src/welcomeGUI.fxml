@@ -13,8 +13,8 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Button fx:id="startRate" layoutX="313.0" layoutY="226.0" mnemonicParsing="false" onAction="#goToRate" text="Start!" />
+      <Button fx:id="startRate" layoutX="323.0" layoutY="226.0" mnemonicParsing="false" onAction="#goToRate" text="Start!" />
       <Label layoutX="129.0" layoutY="176.0" text="please enter your name and start rating movies" textFill="WHITE" />
-      <TextField fx:id="name_txt" layoutX="151.0" layoutY="226.0" promptText="Your name" />
+      <TextField fx:id="name_txt" layoutX="133.0" layoutY="226.0" promptText="Your name" />
    </children>
 </AnchorPane>
