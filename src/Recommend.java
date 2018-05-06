@@ -198,11 +198,5 @@ public class Recommend {
 
         }
         sortByValuesScores(MovieToOffer);
-        Iterator it3 = MovieToOffer.entrySet().iterator();
-        while (it3.hasNext()) { //all movies
-            Map.Entry pair = (Map.Entry) it3.next(); // pair = key-movieID val-Movie
-            System.out.println(pair.getKey().toString() + "  " + pair.getValue().toString());
-
-        }
     }
 }

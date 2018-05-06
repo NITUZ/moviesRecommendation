@@ -6,17 +6,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RecommendedGUIController">
+<AnchorPane prefHeight="470.0" prefWidth="700.0" style="-fx-background-image: url(&quot;http://ak7.picdn.net/shutterstock/videos/3718097/thumb/2.jpg&quot;); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RecommendedGUIController">
    <children>
-      <Label layoutX="172.0" layoutY="31.0" text="Recommended For You">
+      <Label layoutX="148.0" layoutY="46.0" text="Recommended For You" textAlignment="CENTER">
          <font>
-            <Font size="26.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fx:id="image_img" fitHeight="177.0" fitWidth="151.0" layoutX="232.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="movieTitle_txt" layoutX="121.0" layoutY="255.0" prefHeight="17.0" prefWidth="333.0" />
-      <Label fx:id="movieRank_txt" layoutX="147.0" layoutY="285.0" prefHeight="17.0" prefWidth="121.0" />
-      <Button fx:id="prev_btn" layoutX="69.0" layoutY="315.0" mnemonicParsing="false" onAction="#prevMovie" text="prev" />
-      <Button fx:id="next_btn" layoutX="428.0" layoutY="315.0" mnemonicParsing="false" onAction="#nextMovie" text="next" />
+      <ImageView fx:id="image_img" fitHeight="233.0" fitWidth="195.0" layoutX="252.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="movieTitle_txt" layoutX="221.0" layoutY="336.0" prefHeight="17.0" prefWidth="333.0">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="movieRank_txt" layoutX="257.0" layoutY="373.0" prefHeight="17.0" prefWidth="121.0" />
+      <Button fx:id="prev_btn" layoutX="123.0" layoutY="410.0" mnemonicParsing="false" onAction="#prevMovie" prefHeight="38.0" prefWidth="77.0" text="previous" />
+      <Button fx:id="next_btn" layoutX="496.0" layoutY="410.0" mnemonicParsing="false" onAction="#nextMovie" prefHeight="38.0" prefWidth="77.0" text="next" />
+      <Label layoutX="185.0" layoutY="336.0" text="Title:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="185.0" layoutY="369.0" text="Avg Rate:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="userName" layoutX="148.0" layoutY="18.0" prefHeight="25.0" prefWidth="395.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

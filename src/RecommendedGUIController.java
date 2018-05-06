@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +19,35 @@ public class RecommendedGUIController
     public static List<Integer> moviesID=new ArrayList<>();
     public int index=0;
     public Movie currMovie;
+    public Label userName;
+    public static String name;
 
     @FXML
     public void initialize()
     {
+        userName.setText(name);
         showMovie();
     }
 
     private void showMovie() {
+        if(index>0)
+        {
+            prev_btn.setDisable(false);
+        }
+        else
+        {
+            prev_btn.setDisable(true);
+        }
+        if(index<8)
+        {
+            next_btn.setDisable(false);
+        }
+        else
+        {
+            next_btn.setDisable(true);
+        }
+
+
         //image
         int id=moviesID.get(index);
         currMovie=ReadFromDB.movies.get(id);
@@ -37,7 +59,10 @@ public class RecommendedGUIController
         movieTitle_txt.setText(currMovie.movieName);
 
         //rank
-        movieRank_txt.setText(currMovie.avgRank+"");
+        double rank=currMovie.avgRank;
+        DecimalFormat df = new DecimalFormat("####0.0");
+
+        movieRank_txt.setText(df.format(rank));
     }
 
     public void prevMovie(ActionEvent actionEvent) {

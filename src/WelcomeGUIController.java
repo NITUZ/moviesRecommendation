@@ -24,6 +24,7 @@ public class WelcomeGUIController {
             name = name_txt.getText();
         }
 
+        GUIController.userName=name;
         Stage stage = new Stage();
         stage.setTitle("Rate Movies");
         FXMLLoader fxmlLoader = new FXMLLoader();

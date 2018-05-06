@@ -1,3 +1,4 @@
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,6 +33,8 @@ public class GUIController {
     public javafx.scene.image.ImageView moviePhoto=new javafx.scene.image.ImageView();
     public Label movieTitle;
     public Button next;
+    public Button saveMovieRate;
+    public static String userName;
 
     @FXML
     public void initialize() throws SQLException, ClassNotFoundException {
@@ -83,16 +86,17 @@ public class GUIController {
         }
 
 
+        RecommendedGUIController.name=userName;
         Stage stage = new Stage();
         stage.setTitle("Recommended For You");
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = fxmlLoader.load(getClass().getResource("recommendedGUI.fxml").openStream());
-        Scene scene = new Scene(root, 700, 600);
+        Scene scene = new Scene(root, 700, 470);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
         Stage stage2=(Stage)next.getScene().getWindow();
         stage2.close();
-        stage.showAndWait();
+        stage.show();
 
     }
 
