@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="moviesRecommendation:jar">
+  <artifact type="jar" name="moviesRecommendation.jar">
     <output-path>$PROJECT_DIR$/out/artifacts/moviesRecommendation_jar</output-path>
     <root id="archive" name="moviesRecommendation.jar">
       <element id="module-output" name="moviesRecommendation" />
