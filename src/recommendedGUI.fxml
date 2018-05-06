@@ -31,9 +31,9 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="userName" layoutX="148.0" layoutY="18.0" prefHeight="25.0" prefWidth="395.0">
+      <Label fx:id="userName" layoutX="148.0" layoutY="18.0" prefHeight="25.0" prefWidth="395.0" textFill="#cd0f0f">
          <font>
-            <Font size="18.0" />
+            <Font size="26.0" />
          </font>
       </Label>
    </children>
