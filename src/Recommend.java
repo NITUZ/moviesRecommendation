@@ -58,6 +58,8 @@ public class Recommend {
             {
                 Movie currMovie = ReadFromDB.movies.get(pair.getKey());
                 for (User u : currMovie.users) {//for all users of a curr movie
+                    if(currentUser.userID==u.userID)
+                        continue;
                     double raForcurr = currentUser.MoviesRanks.get(pair.getKey());
                     double mone1 = raForcurr - currAVG;
                     double ruForCurr = u.MoviesRanks.get(pair.getKey());
