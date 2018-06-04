@@ -22,7 +22,7 @@ public class Recommend {
     //sort Similarity hashmap by value
     public void sortByValuesSim(HashMap map) {
         List list = new LinkedList(map.entrySet());
-// Defined Custom Comparator here
+        // Defined Custom Comparator here
         Collections.sort(list, new Comparator() {
             public int compare(Object o1, Object o2) {
                 if (((double) ((Map.Entry) (o2)).getValue()) -
